@@ -1,6 +1,5 @@
 package com.sh.search.popular.application
 
-import com.sh.search.common.CacheName
 import com.sh.search.popular.domain.PopularKeyword
 import com.sh.search.popular.domain.PopularKeywordReader
 import org.springframework.cache.annotation.Cacheable

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import javax.validation.Valid
+import javax.validation.constraints.Max
+import javax.validation.constraints.Min
 import javax.validation.constraints.NotBlank
 
 @RequestMapping(BlogSearchApiUrl.SEARCH)
@@ -30,7 +32,9 @@ data class BlogSearchReq(
         @field:NotBlank(message = "검색어는 필수로 입력해야 합니다.")
         val query:String?,
         val sort: Sort = Sort.ACCURACY,
+        @field:Min(1) @field:Max(50)
         val page:Int = 1,
+        @field:Min(1) @field:Max(50)
         val pageSize:Int = 10,
 ) {
     fun toCommand() : BlogSearchCommand {
@@ -41,8 +45,8 @@ data class BlogSearchReq(
 data class BlogSearchRes(
         val totalCount:Long,
         val pageableCount:Int,
-        val data:List<BlogContentsRes>
+        val contentsList:List<BlogContentsRes>
 ) {
     constructor(r:PageableData<BlogContents>) :
-            this(totalCount = r.totalCount, pageableCount = r.pageableCount, data = r.data.map(::BlogContentsRes))
+            this(totalCount = r.totalCount, pageableCount = r.pageableCount, contentsList = r.data.map(::BlogContentsRes))
 }

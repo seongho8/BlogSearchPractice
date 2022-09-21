@@ -109,7 +109,7 @@ class CommonExceptionHandler {
         val bindingResult = e.bindingResult
         val fe = bindingResult.fieldError
         return if (fe != null) {
-            val message = "Request Error ${fe.field}=${fe.rejectedValue} (${fe.defaultMessage})"
+            val message = "Request Error ${fe.field}=${fe.rejectedValue} (잘못된 파라미터입니다.)"
             CommonResponse.fail(message, ErrorCode.COMMON_INVALID_PARAMETER.name)
         } else {
             CommonResponse.fail(ErrorCode.COMMON_INVALID_PARAMETER)

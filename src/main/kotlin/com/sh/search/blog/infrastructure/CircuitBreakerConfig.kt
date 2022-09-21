@@ -38,7 +38,7 @@ class CircuitBreakerConfig {
 
     @Bean
     fun circuitBreakerNameResolver(): CircuitBreakerNameResolver {
-        return CircuitBreakerNameResolver { feignClientName: String, target: Target<*>, method: Method ->
+        return CircuitBreakerNameResolver { feignClientName: String, _: Target<*>, _: Method ->
             feignClientName
         }
     }

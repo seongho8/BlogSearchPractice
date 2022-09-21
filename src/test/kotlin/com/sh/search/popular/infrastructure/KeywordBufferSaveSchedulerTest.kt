@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.data.domain.PageRequest
+import org.springframework.stereotype.Component
 import java.time.LocalDate
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.Executors
@@ -42,5 +43,20 @@ internal class KeywordBufferSaveSchedulerTest {
             .filter { it.id.keyword == popularKeywordId.keyword }.first()
 
         assertEquals(numberOfThreads * hitCount, popularKeyword.hitCount)
+    }
+}
+
+@Component
+class KeywordBufferSaveSchedulerTestSupporter {
+    @Autowired
+    private lateinit var bulkSaveRepository: BulkSaveRepository
+
+    fun saveKeyword(vararg keywords:Pair<PopularKeywordId, Long>) {
+        val keywordBuffer = KeywordBuffer()
+        val scheduler = KeywordBufferSaveScheduler(keywordBuffer, bulkSaveRepository)
+        keywords.forEach {
+            keywordBuffer.put(it.first, it.second)
+        }
+        scheduler.saveKeyword()
     }
 }

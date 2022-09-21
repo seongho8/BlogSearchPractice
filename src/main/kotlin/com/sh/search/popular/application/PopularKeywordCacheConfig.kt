@@ -1,4 +1,4 @@
-package com.sh.search.common
+package com.sh.search.popular.application
 
 import org.springframework.cache.CacheManager
 import org.springframework.cache.annotation.CacheEvict

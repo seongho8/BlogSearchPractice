@@ -30,7 +30,7 @@ class NaverBlogClientConfig {
     @Bean
     fun errorDecoder(objectMapper: ObjectMapper) : ErrorDecoder {
         return ErrorDecoder {
-                methodKey:String, response: Response ->
+                _:String, response: Response ->
             val errorRes = objectMapper.readValue(response.body().asInputStream(), NaverErrorRes::class.java)
             throw NaverBlogSearchEngineException(errorRes)
         }

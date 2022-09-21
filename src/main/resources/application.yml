@@ -17,11 +17,11 @@ app:
   infra:
     kakao:
       api-url: https://dapi.kakao.com
-      rest-api-key: "KakaoAK 1b3ef0be484b36a206022a314fff8add"
+      rest-api-key: "KakaoAK f157e80f1ee986380921310bb0387ad3"
     naver:
       api-url: https://openapi.naver.com
       api-client-id: KmepB3wSZq1eQvMCCY9F
-      api-client-secret: NimtmvYiP_
+      api-client-secret: X36rPnmWOe
 
 ---
 spring.config.activate.on-profile: local

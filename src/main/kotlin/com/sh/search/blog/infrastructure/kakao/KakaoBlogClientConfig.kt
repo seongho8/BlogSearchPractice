@@ -30,7 +30,7 @@ class KakaoBlogClientConfig {
     @Bean
     fun errorDecoder(objectMapper: ObjectMapper) : ErrorDecoder {
         return ErrorDecoder {
-            methodKey:String, response:Response ->
+                _:String, response:Response ->
             val errorRes = objectMapper.readValue(response.body().asInputStream(), KakaoErrorRes::class.java)
 
             val log = LoggerFactory.getLogger("KakaoBlogClientErrorDecoder")
