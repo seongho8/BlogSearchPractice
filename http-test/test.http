@@ -1,0 +1,5 @@
+### 블로그 검색
+GET http://localhost:8080/api/v1/search/blog?query=카카오뱅크&sort=ACCURACY&page=1&pageSize=2
+
+### 인기검색어 목록
+GET http://localhost:8080/api/v1/search/blog/popular-keyword

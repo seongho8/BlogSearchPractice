@@ -1,0 +1,10 @@
+### 카카오. page: 1~50 사이의 값, size: 1~50 사이의 값
+GET https://dapi.kakao.com/v2/search/blog?query=카카오뱅크&sort=accuracy&page=1&size=10
+Authorization: KakaoAK 1b3ef0be484b36a206022a314fff8add
+
+
+### 네이버. display: 한 번에 표시할 검색 결과 개수(기본값: 10, 최댓값: 100), start: 검색 시작 위치(기본값: 1, 최댓값: 1000)
+GET https://openapi.naver.com/v1/search/blog.json?query=카카오뱅크&display=2&start=1&sort=sim
+X-Naver-Client-Id: KmepB3wSZq1eQvMCCY9F
+X-Naver-Client-Secret: NimtmvYiP_
+

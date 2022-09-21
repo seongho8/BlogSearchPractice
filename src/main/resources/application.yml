@@ -1,0 +1,49 @@
+spring.application.name: blog-search-api
+spring.profiles.active: local
+
+server:
+  shutdown: graceful
+spring:
+  config:
+    import: logging.yml
+
+feign:
+  circuitbreaker:
+    group:
+      enabled: true
+    enabled: true
+
+app:
+  infra:
+    kakao:
+      api-url: https://dapi.kakao.com
+      rest-api-key: "KakaoAK 1b3ef0be484b36a206022a314fff8add"
+    naver:
+      api-url: https://openapi.naver.com
+      api-client-id: KmepB3wSZq1eQvMCCY9F
+      api-client-secret: NimtmvYiP_
+
+---
+spring.config.activate.on-profile: local
+
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 10
+      data-source-properties:
+        rewriteBatchedStatements: true
+    username: sa
+    url: jdbc:h2:mem:sh;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+  h2:
+    console:
+      enabled: true
+
