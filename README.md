@@ -3,11 +3,11 @@
 ## API 명세서
 api는 다음과 같이 응답 바디 포맷이 동일합니다. 응답 바디는 JSON 객체입니다.
 
-| Name     | Type    | Description             | Required |
-|----------|---------|-------------------------|----------|
+| Name      | Type    | Description             | Required |
+|-----------|---------|-------------------------|----------|
 | result    | String  | SUCCESS(성공) 또는 FAIL(실패) | O        |
-| data     | json    | API응답                   | X        |
-| message     | String  | 에러 메시지                  | X        |
+| data      | json    | API응답                   | X        |
+| message   | String  | 에러 메시지                  | X        |
 | errorCode | Integer | 에러 코드                   | X        |
 
 
@@ -28,22 +28,22 @@ HOST: http://localhost:8080
 #### Response
 * data
 
-| Name     | Type       | Description                          | Required |
-|----------|------------|--------------------------------------|----------|
-| totalCount    | Integer    | 검색된 문서 수                             | O        |
-| pageableCount     | Integer    | total_count 중 노출 가능 문서 수             | O        |
-| contentsList     | json array | 결과 목록                                | O        |
+| Name          | Type       | Description              | Required |
+|---------------|------------|--------------------------|----------|
+| totalCount    | Integer    | 검색된 문서 수                 | O        |
+| pageableCount | Integer    | total_count 중 노출 가능 문서 수 | O        |
+| contentsList  | json array | 결과 목록                    | O        |
 
  * contentsList
 
-  | Name     | Type       | Description              | Required |
-  |------------|--------------------------|----------|----------|
-  | title    | String     | 블로그 글 제목                 | O        |
-  | contents     | String     | 블로그 글 요약                 | O        |
-  | link     | String     | 블로그 글 URL                | O        |
-  | postedAt    | Datetime   | 블로그 글 작성시간. ISO 8601. yyyy-MM-dd'T'HH:mm:ss.SSSXXX   | O        |
-  | bloggerName     | String    | 블로그의 이름 | O        |
-  | thumbnail     | String | 검색 시스템에서 추출한 대표 미리보기 이미지 URL, 미리보기 크기 및 화질은 변경될 수 있음                    | X        |
+| Name        | Type     | Description                                          | Required |
+|-------------|----------|------------------------------------------------------|----------|
+| title       | String   | 블로그 글 제목                                             | O        |
+| contents    | String   | 블로그 글 요약                                             | O        |
+| link        | String   | 블로그 글 URL                                            | O        |
+| postedAt    | Datetime | 블로그 글 작성시간. ISO 8601. yyyy-MM-dd'T'HH:mm:ss.SSSXXX   | O        |
+| bloggerName | String   | 블로그의 이름                                              | O        |
+| thumbnail   | String   | 검색 시스템에서 추출한 대표 미리보기 이미지 URL, 미리보기 크기 및 화질은 변경될 수 있음 | X        |
 
 ### 인기 검색어 목록
 ```
@@ -55,11 +55,11 @@ HOST: http://localhost:8080
 #### Response
 * data
 
-| Name     | Type       | Description | Required |
-|----------|------------|-------------|----------|
-| baseDate    | Date       | 기준일         | O        |
-| keyword     | String     | 검색어         | O        |
-| hitCount     | Integer | 검색 횟수       | O        |
+| Name     | Type    | Description | Required |
+|----------|---------|-------------|----------|
+| baseDate | Date    | 기준일         | O        |
+| keyword  | String  | 검색어         | O        |
+| hitCount | Integer | 검색 횟수       | O        |
 
 
 ## 설계
